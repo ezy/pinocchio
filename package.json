@@ -1,0 +1,36 @@
+{
+  "name": "ember_checker",
+  "version": "1.0.0",
+  "description": "Ember version Checker",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "lint-fix": "eslint --fix **/*.js"
+  },
+  "author": "@ezy",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "lodash": "^4.17.11",
+    "progress": "^2.0.1",
+    "puppeteer": "^1.9.0",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipenogueira/ember_checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipenogueira/ember_checker/issues"
+  },
+  "homepage": "https://github.com/felipenogueira/ember_checker#readme",
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}

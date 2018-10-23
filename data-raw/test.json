@@ -1,0 +1,65 @@
+[{
+    "url": "http://www.0064.co.nz/",
+    "arcFileParition": 900,
+    "arcSourceSegmentId": 1346876860786,
+    "arcFileDate": 1346921667343,
+    "compressedSize": 959,
+    "arcFileOffset": 68524713
+  },
+  {
+    "url": "http://www.0064.co.nz/",
+    "arcFileParition": 988,
+    "arcSourceSegmentId": 1346823846039,
+    "arcFileDate": 1346871290605,
+    "compressedSize": 959,
+    "arcFileOffset": 87446602
+  },
+  {
+    "url": "http://www.007law.co.nz/",
+    "arcFileParition": 1931,
+    "arcSourceSegmentId": 1346876860565,
+    "arcFileDate": 1346912269002,
+    "compressedSize": 4572,
+    "arcFileOffset": 88983014
+  },
+  {
+    "url": "http://www.007law.co.nz/",
+    "arcFileParition": 3820,
+    "arcSourceSegmentId": 1346823846036,
+    "arcFileDate": 1346858645942,
+    "compressedSize": 5046,
+    "arcFileOffset": 70516067
+  },
+  {
+    "url": "http://www.007law.co.nz/Contact_Us.shtml",
+    "arcFileParition": 860,
+    "arcSourceSegmentId": 1346823845675,
+    "arcFileDate": 1346865529375,
+    "compressedSize": 2367,
+    "arcFileOffset": 56301880
+  },
+  {
+    "url": "http://www.007law.co.nz/Feedback.shtml",
+    "arcFileParition": 859,
+    "arcSourceSegmentId": 1346823845675,
+    "arcFileDate": 1346865532274,
+    "compressedSize": 2222,
+    "arcFileOffset": 44342610
+  },
+  {
+    "url": "http://www.007law.co.nz/Newsletter.shtml",
+    "arcFileParition": 859,
+    "arcSourceSegmentId": 1346823845675,
+    "arcFileDate": 1346865802710,
+    "compressedSize": 2078,
+    "arcFileOffset": 67181619
+  },
+  {
+    "url": "http://www.007law.co.nz/Services.shtml",
+    "arcFileParition": 859,
+    "arcSourceSegmentId": 1346823845675,
+    "arcFileDate": 1346866122939,
+    "compressedSize": 8461,
+    "arcFileOffset": 4089052
+  }
+]
