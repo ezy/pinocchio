@@ -4,7 +4,7 @@
 
 Make sure you have Node.js installed.
 
-- `git clone https://github.com/ezy/pinocchio # or clone your own fork`
+- `git clone https://github.com/ezy/pinocchio` # or clone your own fork
 - `cd pinocchio`
 - `npm install`
 
