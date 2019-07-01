@@ -5,6 +5,9 @@ const ProgressBar = require('progress');
 
 const write = require('./services/createFile.js');
 
+const outputDirectory = './output';
+const outputFile = 'ember-versions.txt';
+
 /**
  * Evaluate Ember VERSION function
  * @param  {[array]} dataFile can be array of objects requiring saveData,
@@ -20,7 +23,10 @@ async function getEV(dataFile, saveData) {
     contents = JSON.parse(rawdata);
   }
 
-  const stream = fs.createWriteStream('output/ember-versions.txt', { flags: 'a' });
+  if (!fs.existsSync(outputDirectory)) {
+    fs.mkdirSync(outputDirectory);
+  }
+  const stream = fs.createWriteStream(`${outputDirectory}/${outputFile}`, { flags: 'a' });
 
   const len = contents.length;
   const bar = new ProgressBar('Visiting URLs [:bar] :percent', {
@@ -34,7 +40,9 @@ async function getEV(dataFile, saveData) {
 
   const processUrl = async (url) => {
     const page = await browser.newPage();
-    const domain = `https://${url}`;
+    const domain = url.indexOf('http://') === 0 || url.indexOf('https://') === 0
+      ? url
+      : `https://${url}`;
     try {
       await page.goto(domain, {
         waitUntil: 'load',
@@ -42,7 +50,7 @@ async function getEV(dataFile, saveData) {
       });
       await page.evaluate(() => Ember.VERSION) // eslint-disable-line
         .then((emberVer) => {
-          const foundEV = `- ${url} (${emberVer})`;
+          const foundEV = `- (${emberVer}) ${url}`;
           stream.write(`${foundEV}\n`);
           console.log(chalk.green(foundEV));
         })
