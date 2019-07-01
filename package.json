@@ -1,6 +1,6 @@
 {
   "name": "ember_checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ember version Checker",
   "main": "index.js",
   "engines": {
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/felipenogueira/ember_checker.git"
+    "url": "git+https://github.com/ezy/pinocchio"
   },
   "bugs": {
-    "url": "https://github.com/felipenogueira/ember_checker/issues"
+    "url": "https://github.com/ezy/pinocchio/issues"
   },
-  "homepage": "https://github.com/felipenogueira/ember_checker#readme",
+  "homepage": "https://github.com/ezy/pinocchio#readme",
   "devDependencies": {
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.1.0",
