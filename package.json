@@ -13,7 +13,7 @@
     "lint-fix": "eslint --fix **/*.js"
   },
   "author": "@ezy",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
     "lodash": "^4.17.11",
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/ezy/pinocchio#readme",
   "devDependencies": {
     "eslint": "^6.0.1",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0"
   }
 }

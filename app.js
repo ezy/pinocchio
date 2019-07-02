@@ -8,6 +8,9 @@ const write = require('./services/createFile.js');
 const outputDirectory = './output';
 const outputFile = 'ember-versions.txt';
 
+// Use the count to specifiy start length in asyncForEach array
+let count = 930;
+
 /**
  * Evaluate Ember VERSION function
  * @param  {[array]} dataFile can be array of objects requiring saveData,
@@ -23,12 +26,13 @@ async function getEV(dataFile, saveData) {
     contents = JSON.parse(rawdata);
   }
 
-  if (!fs.existsSync(outputDirectory)) {
-    fs.mkdirSync(outputDirectory);
-  }
+  if (!fs.existsSync(outputDirectory)) fs.mkdirSync(outputDirectory);
   const stream = fs.createWriteStream(`${outputDirectory}/${outputFile}`, { flags: 'a' });
 
   const len = contents.length;
+  if (len < count) throw new Error('Count must be less than array length for starting value');
+  console.log(chalk.green(`Scanning ${len} urls - starting at ${count}`));
+
   const bar = new ProgressBar('Visiting URLs [:bar] :percent', {
     complete: '=',
     incomplete: ' ',
@@ -42,28 +46,25 @@ async function getEV(dataFile, saveData) {
     const page = await browser.newPage();
     const domain = url.indexOf('http://') === 0 || url.indexOf('https://') === 0
       ? url
-      : `https://${url}`;
+      : `http://${url}`;
+    // eslint-disable-next-line no-unused-vars
     try {
       await page.goto(domain, {
         waitUntil: 'load',
-        timeout: 0
+        timeout: 1000 * 60
       });
-      await page.evaluate(() => Ember.VERSION) // eslint-disable-line
-        .then((emberVer) => {
-          const foundEV = `- (${emberVer}) ${url}`;
-          stream.write(`${foundEV}\n`);
-          console.log(chalk.green(foundEV));
-        })
-        .catch(() => {
-          // console.log(chalk.blue(`No Ember @${i}`));
-        });
+      count += 1;
+      const emberVer = await page.evaluate(() => Ember.VERSION); // eslint-disable-line
+      const foundEV = `- (${emberVer}) ${url}`;
+      stream.write(`${foundEV}\n`);
+      console.log(chalk.green(foundEV));
     } catch (error) {
-      // console.log(chalk.red(' No URL'));
+      console.log(chalk.blue(`No Ember @ ${domain} - count is ${count}`));
     }
   };
 
   async function asyncForEach(array, callback) {
-    for (let index = 0; index < array.length; index++) { // eslint-disable-line
+    for (let index = count; index < array.length; index++) { // eslint-disable-line
       await callback(array[index], index, array); // eslint-disable-line
     }
   }
@@ -82,4 +83,4 @@ async function getEV(dataFile, saveData) {
 /**
  * Takes the string of the data file location with array of URLs
  */
-getEV('data/test.json');
+getEV('data/nz-a-c.json');
