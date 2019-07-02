@@ -9,7 +9,7 @@ const outputDirectory = './output';
 const outputFile = 'ember-versions.txt';
 
 // Use the count to specifiy start length in asyncForEach array
-let count = 1084;
+let count = 2180;
 // let count = 0;
 
 /**
