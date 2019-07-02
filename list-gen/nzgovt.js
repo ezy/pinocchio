@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const fs = require('fs');
 const chalk = require('chalk');
 const puppeteer = require('puppeteer');
@@ -62,5 +63,23 @@ const scanGovtWebLinks = async () => {
   }
 };
 
+const cleanGovtLinks = () => {
+  const data = fs.readFileSync(`${outputDirectory}/govt-ext-links.json`);
+  const websiteLinks = JSON.parse(data);
+  const singlelinks = _.uniqBy(websiteLinks, (url) => {
+    const nodeUrl = new URL(url);
+    return nodeUrl.host;
+  });
+  fs.writeFile(
+    `${outputDirectory}/govt-scrubbed-ext-links.json`,
+    JSON.stringify(singlelinks),
+    (err) => {
+      if (err) throw err;
+      console.log('The file has been saved!');
+    }
+  );
+};
+
 // getGovWebLinks('https://www.govt.nz/organisations/');
-scanGovtWebLinks();
+// scanGovtWebLinks();
+cleanGovtLinks();

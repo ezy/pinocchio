@@ -9,7 +9,8 @@ const outputDirectory = './output';
 const outputFile = 'ember-versions.txt';
 
 // Use the count to specifiy start length in asyncForEach array
-let count = 930;
+let count = 1084;
+// let count = 0;
 
 /**
  * Evaluate Ember VERSION function
